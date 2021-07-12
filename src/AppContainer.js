@@ -47,7 +47,6 @@ const AppContainer = (props) => {
                 <>
                     <li><Link to="/quotes">Quotes</Link></li>
                     <li><Link to="/" onClick={()=>{
-                        console.log('hey')
                         localStorage.removeItem('token')
                         dispatch(logoutUser())
                     }}>Logout</Link></li>

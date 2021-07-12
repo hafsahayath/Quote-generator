@@ -11,7 +11,6 @@ store.subscribe(()=>{
     console.log('store updated',store.getState())
 })
 
-console.log(store.getState())
 
 ReactDOM.render(
 <Provider store={store}>
