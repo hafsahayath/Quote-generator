@@ -8,13 +8,15 @@ const authReducer = (state=authInitialState, action) => {
         }
 
         case 'LOGIN':{
-            localStorage.setItem('token',action.payload)
+            return {...state, login:true}
+        }
+
+        case 'LOGGED_IN':{
             return {...state, login:true}
         }
 
         case 'LOGOUT':{
             alert('logged out successfully')
-            localStorage.removeItem('token')
             return authInitialState
         }
 

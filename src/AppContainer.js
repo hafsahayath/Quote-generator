@@ -1,11 +1,11 @@
-import React,{ useState } from 'react'
+import React,{ useState, useEffect } from 'react'
 import RandomQuote from './quoteComponents/RandomQuote'
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, withRouter } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import Register from './authComponents/Register'
 import { asyncSaveQuote } from './actions/quotesListActions'
 import QuoteList from './quoteComponents/QuoteList'
-import { logoutUser } from './actions/authActions'
+import { logoutUser, setLoggedIn } from './actions/authActions'
 
 
 const AppContainer = (props) => {
@@ -13,6 +13,12 @@ const AppContainer = (props) => {
     const login = useSelector(state=>state.auth.login)
     const randomQuote = useSelector(state=>state.randomQuote)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        if(localStorage.hasOwnProperty('token')){
+            dispatch(setLoggedIn())
+        }
+    },[])
 
     const saveQuote = () => {
         if(!login){
@@ -42,6 +48,7 @@ const AppContainer = (props) => {
                     <li><Link to="/quotes">Quotes</Link></li>
                     <li><Link to="/" onClick={()=>{
                         console.log('hey')
+                        localStorage.removeItem('token')
                         dispatch(logoutUser())
                     }}>Logout</Link></li>
                 </>

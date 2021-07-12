@@ -25,12 +25,19 @@ export const asyncLoginUser = (formData) => {
                 if(result.hasOwnProperty('errors')){
                     alert(result.errors)
                 } else {
-                    dispatch(loginUser(result.token))
+                    localStorage.setItem('token',result.token)
+                    dispatch(loginUser())
                 }
             })
             .catch((err)=>{
                 alert(err.message)
             })
+    }
+}
+
+export const setLoggedIn = () => {
+    return {
+        type: 'LOGGED_IN'
     }
 }
 
@@ -40,10 +47,9 @@ export const logoutUser = () => {
     }
 }
 
-const loginUser = (data) => {
+const loginUser = () => {
     return {
-        type: 'LOGIN',
-        payload: data
+        type: 'LOGIN'
     }
 }
 
