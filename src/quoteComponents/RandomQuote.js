@@ -12,11 +12,13 @@ const RandomQuote = ({setShow, show, onClose, saveQuote}) => {
     }
 
     return (
-        <div>
+        <div className="flex-col">
             <p>{randomQuote.content}</p>
             <h4>{randomQuote.author}</h4>
-            <button onClick={generate}>New Quote</button>
-            {Object.keys(randomQuote).length > 0 && <button onClick={saveQuote}>save</button>}
+            <div className="flex justify-between mt-10">
+                <button onClick={generate}>New Quote</button>
+                {Object.keys(randomQuote).length > 0 && <button onClick={saveQuote}>save</button>}
+            </div>
             <LoginModal show={show} onClose={onClose} setShow={setShow}/>
         </div>
     )

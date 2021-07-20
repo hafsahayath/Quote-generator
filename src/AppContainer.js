@@ -37,33 +37,36 @@ const AppContainer = (props) => {
     }
 
     return (
-        <div>
-            <ul>
-                <li><Link to="/">QuoteBook</Link></li>
-                { !login ? 
-                <>
-                    <li onClick={()=>setShow(true)}><Link>Login</Link></li>
-                </> :
-                <>
-                    <li><Link to="/quotes">Quotes</Link></li>
-                    <li><Link to="/" onClick={()=>{
-                        localStorage.removeItem('token')
-                        dispatch(logoutUser())
-                    }}>Logout</Link></li>
-                </>
-                }
-            </ul>
-
-            <Route path="/" exact render={(props)=>{
-                return <RandomQuote {...props} show={show} saveQuote={saveQuote} onClose={onClose} setShow={setShow}/>
-            }} />
-            <Route path="/register" render={(props)=>{
-                return <Register {...props} setShow={setShow} />
-            }}/>
-            <Route path="/quotes" component={QuoteList} />
+        <div className="flex-col">
+            <div>
+                <ul className="flex justify-between py-5 px-7 bg-red-300">
+                    <li><Link to="/">QuoteBook</Link></li>
+                    { !login ? 
+                    <>
+                        <li onClick={()=>setShow(true)}><Link>Login</Link></li>
+                    </> :
+                    <>
+                        <li><Link to="/quotes">Quotes</Link></li>
+                        <li><Link to="/" onClick={()=>{
+                            localStorage.removeItem('token')
+                            dispatch(logoutUser())
+                        }}>Logout</Link></li>
+                    </>
+                    }
+                </ul>
+            </div>
+            <div className="flex justify-center pt-60">
+                <Route path="/" exact render={(props)=>{
+                    return <RandomQuote {...props} show={show} saveQuote={saveQuote} onClose={onClose} setShow={setShow}/>
+                }} />
+                <Route path="/register" render={(props)=>{
+                    return <Register {...props} setShow={setShow} />
+                }}/>
+                <Route path="/quotes" component={QuoteList} />
+            </div>
         </div>
 
     )
 }
 
-export default AppContainer
+export default withRouter(AppContainer)
