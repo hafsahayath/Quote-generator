@@ -56,26 +56,28 @@ const LoginModal = ({show, onClose, setShow}) => {
             unmountOnExit
             timeout={{ enter: 0, exit: 300 }}
         >
-            <div className={`modal ${show ? 'show' : ''}`} onClick={onClose}>
-                <div className="modal-content bg-indigo-400" onClick={(e)=>e.stopPropagation()}>
+            <div className={`modal flex ${show ? 'show' : ''}`} onClick={onClose}>
+                <div className="modal-content bg-indigo-400 rounded-lg" onClick={(e)=>e.stopPropagation()}>
                     <div className="modal-header">
-                        <h4 className="modal-title">Login</h4>
+                        <h4 className="modal-title text-voilet-200">Login</h4>
                     </div>
                     <div className="modal-body">
                         <div className="flex-col">
-                            <form className="flex-col w-60 justify-center" onSubmit={formik.handleSubmit}>
-                                <div>
-                                    <input className="rounded py-2 px-3 border-b-2" type="text" name="email" placeholder="enter your email" onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} /> <br />
+                            <form onSubmit={formik.handleSubmit}>
+                                <div className="pl-24">
+                                    <input className="rounded py-2 px-12 border-b-2" type="text" name="email" placeholder="enter your email" onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} /> <br />
                                     {formik.touched.email && formik.errors.email ? <small>{formik.errors.email}</small> : null}
                                 </div>
-                                <div>
-                                    <input className="rounded py-2 px-3 border-b-2" type="password" name="password" placeholder="enter your password" onBlur={formik.handleBlur} value={formik.values.password} onChange={formik.handleChange} /> <br />
+                                <div className="pl-24 mt-2">
+                                    <input className="rounded py-2 px-12 border-b-2" type="password" name="password" placeholder="enter your password" onBlur={formik.handleBlur} value={formik.values.password} onChange={formik.handleChange} /> <br />
                                     {formik.touched.password && formik.errors.password ? <small>{formik.errors.password}</small> : null}
                                 </div>
-                                <input className="btn" type="submit" value="Login" />
+                                <div className="pl-48 mt-2">
+                                    <input className="btn" type="submit" value="Login" />
+                                </div>
                             </form>
-                            <div className="py-4">
-                                <h3>Don't have an account? <Link className="rounded border uppercase text-sm py-2 px-4 bg-white" to="/register">Register here</Link></h3>
+                            <div className="py-4 pl-20">
+                                <h3 className="text-voilet-200">Don't have an account? <Link className="uppercase text-sm py-2 px-2 text-white" to="/register">Register here</Link></h3>
                             </div>
                         </div>
                     </div>
