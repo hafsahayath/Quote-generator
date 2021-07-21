@@ -57,29 +57,31 @@ const LoginModal = ({show, onClose, setShow}) => {
             timeout={{ enter: 0, exit: 300 }}
         >
             <div className={`modal ${show ? 'show' : ''}`} onClick={onClose}>
-                <div className="modal-content" onClick={(e)=>e.stopPropagation()}>
+                <div className="modal-content bg-indigo-400" onClick={(e)=>e.stopPropagation()}>
                     <div className="modal-header">
                         <h4 className="modal-title">Login</h4>
                     </div>
                     <div className="modal-body">
-                        <div>
-                            <form onSubmit={formik.handleSubmit}>
+                        <div className="flex-col">
+                            <form className="flex-col w-60 justify-center" onSubmit={formik.handleSubmit}>
                                 <div>
-                                    <input type="text" name="email" placeholder="enter your email" onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} />
+                                    <input className="rounded py-2 px-3 border-b-2" type="text" name="email" placeholder="enter your email" onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} /> <br />
                                     {formik.touched.email && formik.errors.email ? <small>{formik.errors.email}</small> : null}
                                 </div>
                                 <div>
-                                    <input type="password" name="password" placeholder="enter your password" onBlur={formik.handleBlur} value={formik.values.password} onChange={formik.handleChange} />
+                                    <input className="rounded py-2 px-3 border-b-2" type="password" name="password" placeholder="enter your password" onBlur={formik.handleBlur} value={formik.values.password} onChange={formik.handleChange} /> <br />
                                     {formik.touched.password && formik.errors.password ? <small>{formik.errors.password}</small> : null}
                                 </div>
-                                <input type="submit" value="Login" />
+                                <input className="btn" type="submit" value="Login" />
                             </form>
-                            <h3>Don't have an account? <Link to="/register">Register here</Link></h3>
+                            <div className="py-4">
+                                <h3>Don't have an account? <Link className="rounded border uppercase text-sm py-2 px-4 bg-white" to="/register">Register here</Link></h3>
+                            </div>
                         </div>
                     </div>
-                    <div className="modal-footer">
+                    {/* <div className="modal-footer">
                         <button className="button" onClick={onClose}>close</button>
-                    </div>
+                    </div> */}
                 </div>           
             </div>     
         </CSSTransition>, document.getElementById('root')

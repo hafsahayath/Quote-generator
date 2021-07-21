@@ -12,20 +12,20 @@ module.exports = {
   plugins: [],
 }
 
-module.exports = {
-  theme: {
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      black: colors.black,
-      white: colors.white,
-      gray: colors.trueGray,
-      indigo: colors.indigo,
-      red: colors.rose,
-      yellow: colors.amber,
-    }
-  }
-}
+// module.exports = {
+//   theme: {
+//     colors: {
+//       transparent: 'transparent',
+//       current: 'currentColor',
+//       black: colors.black,
+//       white: colors.white,
+//       gray: colors.trueGray,
+//       indigo: colors.indigo,
+//       red: colors.rose,
+//       yellow: colors.amber,
+//     }
+//   }
+// }
 
 module.exports = {
   theme: {
@@ -37,9 +37,14 @@ module.exports = {
     },
     colors: {
       gray: colors.coolGray,
-      blue: colors.lightBlue,
+      blue: colors.sky,
       red: colors.rose,
       pink: colors.fuchsia,
+      indigo: colors.indigo,
+      white: colors.white,
+      voilet: {
+        DEFAULT: "#30487f"
+      }
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],

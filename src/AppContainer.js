@@ -37,25 +37,23 @@ const AppContainer = (props) => {
     }
 
     return (
-        <div className="flex-col">
-            <div>
-                <ul className="flex justify-between py-5 px-7 bg-red-300">
-                    <li><Link to="/">QuoteBook</Link></li>
+        <div className="flex-col justify-center">
+                <ul className="flex justify-between py-5 px-8">
+                    <li className="text-xl font-semibold subpixel-antialiased text-voilet"><Link to="/"><i className="fab fa-quora text-2xl"></i>uoteBook</Link></li>
                     { !login ? 
                     <>
-                        <li onClick={()=>setShow(true)}><Link>Login</Link></li>
+                        <li className="text-xl font-semibold subpixel-antialiased" onClick={()=>setShow(true)}><Link className="text-voilet">Login</Link></li>
                     </> :
                     <>
-                        <li><Link to="/quotes">Quotes</Link></li>
-                        <li><Link to="/" onClick={()=>{
+                        <li className="text-xl font-semibold subpixel-antialiased"><Link className="text-voilet" to="/quotes">Quotes</Link></li>
+                        <li className="text-xl font-semibold subpixel-antialiased"><Link className="text-voilet" to="/" onClick={()=>{
                             localStorage.removeItem('token')
                             dispatch(logoutUser())
                         }}>Logout</Link></li>
                     </>
                     }
                 </ul>
-            </div>
-            <div className="flex justify-center pt-60">
+            <div>
                 <Route path="/" exact render={(props)=>{
                     return <RandomQuote {...props} show={show} saveQuote={saveQuote} onClose={onClose} setShow={setShow}/>
                 }} />
