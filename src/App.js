@@ -5,7 +5,7 @@ import AppContainer from './AppContainer'
 const App = (props) => {
 
     return (
-        <div className="bg-gray-100 w-screen h-screen">
+        <div className="bg-pinkBg w-screen h-screen">
             <AppContainer />
         </div>
 

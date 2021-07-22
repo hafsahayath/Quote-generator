@@ -39,18 +39,18 @@ const AppContainer = (props) => {
     return (
         <div className="flex-col justify-center">
                 <ul className="flex justify-between py-5 px-8">
-                    <li className="text-xl font-semibold subpixel-antialiased text-voilet"><Link to="/"><i className="fab fa-quora text-2xl"></i>uoteBook</Link></li>
+                    <li className="text-xl font-semibold subpixel-antialiased text-pinkMain"><Link to="/"><i className="fab fa-quora text-2xl"></i>uoteBook</Link></li>
                     { !login ? 
                     <>
-                        <li className="text-xl font-semibold subpixel-antialiased" onClick={()=>setShow(true)}><Link className="text-voilet">Login</Link></li>
+                        <li className="text-xl font-semibold subpixel-antialiased" onClick={()=>setShow(true)}><Link className="text-pinkMain">Login</Link></li>
                     </> :
-                    <>
-                        <li className="text-xl font-semibold subpixel-antialiased"><Link className="text-voilet" to="/quotes">Quotes</Link></li>
-                        <li className="text-xl font-semibold subpixel-antialiased"><Link className="text-voilet" to="/" onClick={()=>{
+                    <div className="flex">
+                        <li className="text-xl font-semibold subpixel-antialiased mr-3"><Link className="text-pinkMain" to="/quotes">Quotes</Link></li>
+                        <li className="text-xl font-semibold subpixel-antialiased"><Link className="text-pinkMain" to="/" onClick={()=>{
                             localStorage.removeItem('token')
                             dispatch(logoutUser())
                         }}>Logout</Link></li>
-                    </>
+                    </div>
                     }
                 </ul>
             <div>

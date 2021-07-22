@@ -33,21 +33,23 @@ const Register = (props) => {
     })
 
     return (
-            <div>
-                <form onSubmit={formik.handleSubmit}>
-                    <div>
-                        <input type="text" name="username" placeholder="enter the username" value={formik.values.username} onBlur={formik.handleBlur} onChange={formik.handleChange}/> <br />  
-                        {formik.touched.username && formik.errors.username ? <small>{formik.errors.username}</small> : null} 
+            <div className="h-screen flex justify-center pt-20">
+                <form className="flex-col bg-pink-300 rounded-md pt-20 h-96 w-96" onSubmit={formik.handleSubmit}>
+                    <div className="pl-10 m-2">
+                        <input className="rounded-sm shadow-lg px-12 py-2 focus:outline-none focus:ring-2 focus:ring-pinkMain focus:border-transparent" type="text" name="username" placeholder="enter the username" value={formik.values.username} onBlur={formik.handleBlur} onChange={formik.handleChange}/> <br />
+                        {formik.touched.username && formik.errors.username ? <p className="text-xs text-red-800">{formik.errors.username}</p> : null} 
                     </div>
-                    <div>
-                        <input type="text" name="email" placeholder="enter your email" onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} /> <br />  
-                        {formik.touched.email && formik.errors.email ? <small>{formik.errors.email}</small> : null}
+                    <div className="pl-10 m-2">
+                        <input className="rounded-sm shadow-lg px-12 py-2 focus:outline-none focus:ring-2 focus:ring-pinkMain focus:border-transparent" type="text" name="email" placeholder="enter your email" onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} /> <br />
+                        {formik.touched.email && formik.errors.email ? <p className="text-xs text-red-800">{formik.errors.email}</p> : null}
                     </div>
-                    <div>
-                        <input type="password" name="password" placeholder="enter your password" onBlur={formik.handleBlur} value={formik.values.password} onChange={formik.handleChange} /> <br />  
-                        {formik.touched.password && formik.errors.password ? <small>{formik.errors.password}</small> : null}
+                    <div className="pl-10 m-2">
+                        <input className="rounded-sm shadow-lg px-12 py-2 focus:outline-none focus:ring-2 focus:ring-pinkMain focus:border-transparent" type="password" name="password" placeholder="enter your password" onBlur={formik.handleBlur} value={formik.values.password} onChange={formik.handleChange} /> <br /> 
+                        {formik.touched.password && formik.errors.password ? <p className="text-xs text-red-800">{formik.errors.password}</p> : null}
                     </div>
-                    <input type="submit" value="Register" />
+                    <div className="pl-32 pt-4">
+                        <input className="btn bg-white text-pinkMain border-2 border-pinkMain hover:bg-pinkMain hover:text-white" type="submit" value="Register" />
+                    </div>
                 </form>
             </div>
     )

@@ -13,7 +13,7 @@ const QuoteList = (props) => {
     },[])
 
     return (
-        <div>
+        <div className="flex-col">
             {
                 quotes.length > 0 ? (
                     <div>

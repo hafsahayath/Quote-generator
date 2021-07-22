@@ -41,9 +41,19 @@ module.exports = {
       red: colors.rose,
       pink: colors.fuchsia,
       indigo: colors.indigo,
+      green: colors.green,
       white: colors.white,
-      voilet: {
-        DEFAULT: "#30487f"
+      darkBlue: {
+        DEFAULT: "#25234F"
+      },
+      pinkBg: {
+        DEFAULT: "#FBF3F3"
+      },
+      pinkMain: {
+        DEFAULT: "#BD2F85"
+      },
+      whitesmoke:{
+        DEFAULT:"#F5F5F5."
       }
     },
     fontFamily: {
