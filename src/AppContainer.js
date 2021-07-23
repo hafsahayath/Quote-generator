@@ -32,6 +32,10 @@ const AppContainer = (props) => {
         }
     }
 
+    const openModal = () => {
+        setShow(true)
+    }
+
     const onClose = () => {
         setShow(false)
     }
@@ -45,7 +49,7 @@ const AppContainer = (props) => {
                         <li className="text-xl font-semibold subpixel-antialiased" onClick={()=>setShow(true)}><Link className="text-pinkMain">Login</Link></li>
                     </> :
                     <div className="flex">
-                        <li className="text-xl font-semibold subpixel-antialiased mr-3"><Link className="text-pinkMain" to="/quotes">Quotes</Link></li>
+                        <li className="text-xl font-semibold subpixel-antialiased mr-6"><Link className="text-pinkMain" to="/quotes">Quotes</Link></li>
                         <li className="text-xl font-semibold subpixel-antialiased"><Link className="text-pinkMain" to="/" onClick={()=>{
                             localStorage.removeItem('token')
                             dispatch(logoutUser())
@@ -55,10 +59,10 @@ const AppContainer = (props) => {
                 </ul>
             <div>
                 <Route path="/" exact render={(props)=>{
-                    return <RandomQuote {...props} show={show} saveQuote={saveQuote} onClose={onClose} setShow={setShow}/>
+                    return <RandomQuote {...props} show={show} saveQuote={saveQuote} onClose={onClose} openModal={openModal}/>
                 }} />
                 <Route path="/register" render={(props)=>{
-                    return <Register {...props} setShow={setShow} />
+                    return <Register {...props} onClose={onClose}/>
                 }}/>
                 <Route path="/quotes" component={QuoteList} />
             </div>

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { asyncGenerateQuote } from '../actions/quoteGenAction'
 import LoginModal from '../authComponents/LoginModal'
 
-const RandomQuote = ({setShow, show, onClose, saveQuote}) => {
+const RandomQuote = ({openModal, show, onClose, saveQuote}) => {
     const randomQuote = useSelector(state=>state.randomQuote)
     const dispatch = useDispatch()
 
@@ -25,10 +25,10 @@ const RandomQuote = ({setShow, show, onClose, saveQuote}) => {
                 }
 
                 <div className="flex mb-4 mt-1 justify-between w-3/5 m-auto">
-                    <button className={Object.keys(randomQuote).length > 0 ? "btn bg-pinkMain text-white" : "btn ml-36 bg-pinkMain text-white"} onClick={generate}>New Quote</button>
-                    {Object.keys(randomQuote).length > 0 && <button className="btn bg-pinkMain text-white" onClick={saveQuote}>save</button>}
+                    <button className={Object.keys(randomQuote).length > 0 ? "btn bg-pinkMain text-white border-2 border-pinkMain hover:bg-white hover:text-pinkMain" : "btn ml-36 bg-pinkMain text-white border-2 border-pinkMain hover:bg-white hover:text-pinkMain"} onClick={generate}>New Quote</button>
+                    {Object.keys(randomQuote).length > 0 && <button className="btn bg-pinkMain text-white border-2 border-pinkMain hover:bg-white hover:text-pinkMain" onClick={saveQuote}>save</button>}
                 </div>
-                <LoginModal show={show} onClose={onClose} setShow={setShow}/>
+                <LoginModal show={show} onClose={onClose} openModal={openModal}/>
 
             </div>
         </div>

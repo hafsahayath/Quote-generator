@@ -13,10 +13,10 @@ const QuoteList = (props) => {
     },[])
 
     return (
-        <div className="flex-col">
+        <div className="flex justify-center content-center h-full">
             {
                 quotes.length > 0 ? (
-                    <div>
+                    <div className="pt-4 w-9/12 text-center">
                         {quotes.map(ele=>{
                             return <QuoteItem key={ele._id} {...ele}/>
                         })}

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { asyncLoginUser } from '../actions/authActions'
 import '../styles/Modal.css'
 
-const LoginModal = ({show, onClose, setShow}) => {
+const LoginModal = ({show, onClose, openModal}) => {
     const register = useSelector(state=>state.auth.register)
     const login = useSelector(state=>state.auth.login)
     const dispatch = useDispatch()
@@ -21,7 +21,7 @@ const LoginModal = ({show, onClose, setShow}) => {
 
     useEffect(()=>{
         if(register){
-            setShow(true)
+            openModal()
         } 
         if(login){
             onClose()

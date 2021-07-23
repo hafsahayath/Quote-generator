@@ -6,11 +6,13 @@ import { asyncRegisterUser } from '../actions/authActions'
 
 const Register = (props) => {
     const register = useSelector(state=>state.auth.register)
-    const { setShow } = props
+
+    const { onClose } = props
+    
     useEffect(()=>{
         if(register){
+            onClose()
             props.history.push("/")
-            setShow(true)
         }
     },[register])
 
@@ -33,8 +35,8 @@ const Register = (props) => {
     })
 
     return (
-            <div className="h-screen flex justify-center pt-20">
-                <form className="flex-col bg-pink-300 rounded-md pt-20 h-96 w-96" onSubmit={formik.handleSubmit}>
+            <div className="h-full flex justify-center pt-20">
+                <form className="flex-col bg-pink-200 shadow-lg rounded-md pt-20 h-96 w-96" onSubmit={formik.handleSubmit}>
                     <div className="pl-10 m-2">
                         <input className="rounded-sm shadow-lg px-12 py-2 focus:outline-none focus:ring-2 focus:ring-pinkMain focus:border-transparent" type="text" name="username" placeholder="enter the username" value={formik.values.username} onBlur={formik.handleBlur} onChange={formik.handleChange}/> <br />
                         {formik.touched.username && formik.errors.username ? <p className="text-xs text-red-800">{formik.errors.username}</p> : null} 
